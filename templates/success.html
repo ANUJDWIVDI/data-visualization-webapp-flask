@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Success Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    .star {
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      height: 100px;
+      width: 100px;
+      background: url("https://i.imgur.com/h5QatDL.png");
+      animation: twinkle 3s infinite;
+    }
+    @keyframes twinkle {
+      0% {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(360deg);
+        opacity: 0;
+      }
+    }
+    .cloud {
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      height: 150px;
+      width: 200px;
+      background: url("https://i.imgur.com/kvPyMFJ.png");
+      animation: float 10s infinite;
+    }
+    @keyframes float {
+      0% {
+        transform: translate(0,0);
+      }
+      50% {
+        transform: translate(-20px,0);
+      }
+      100% {
+        transform: translate(0,0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="text-center">
+          <h1 class="display-3">Success!</h1>
+          <p class="lead">Your request has been processed.</p>
+          <div class="star"></div>
+          <div class="cloud"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

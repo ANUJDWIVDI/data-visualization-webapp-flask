@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+<style>
+/* Set purple and pink background */
+body {
+  background-color: #B2E0D9;
+  background-image: linear-gradient(135deg, #20c7ab -80%, #Af56D9FF 100%);
+}
+
+/* Style form container */
+form {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border: 2px solid #FF80D5;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style form headings */
+form h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #FF80D5;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #FF80D5;
+}
+
+form input[type="text"],
+form select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #FF80D5;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #000;
+}
+
+/* Style form select dropdowns */
+form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="%23FF80D5"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+}
+
+/* Style form submit button */
+form input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #460330;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: #910f91;
+}
+
+/* Style form select dropdowns when hovered */
+form select:hover {
+  border: 1px solid #830e83;
+}
+
+/* Style form select dropdowns when active */
+form select:focus {
+  outline: none;
+  border: 1px solid #6d066d;
+  box-shadow: 0px 0px 5px rgba(255, 128, 213, 0.5);
+}
+
+.title {
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  animation: typing 4s steps(30) forwards;
+}
+
+.typewriter::after {
+  content: "|";
+  display: inline-block;
+  width: 0px;
+  animation: blink 5s infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+/* Media query for mobile screens */
+@media (max-width: 600px) {
+  form {
+    padding: 10px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  label {
+    font-size: 14px;
+  }
+  input[type="text"], select {
+    font-size: 14px;
+  }
+  input[type="submit"] {
+    font-size: 14px;
+  }
+}
+</style>
+
+</head>
+<body>
+     <h1 class="title">
+  <span class="typewriter">DATA ANALYTICS FORM :</span>
+</h1>
+<form method="post" action="{{ url_for('form') }}">
+    <label>Name:</label>
+    <input type="text" name="name"><br>
+
+    <label>Age:</label>
+    <input type="text" name="age"><br>
+
+    <label>Gender:</label>
+    <select name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select><br>
+
+    <label>Device Type:</label>
+    <select name="device_used">
+        <option value="desktop">Desktop</option>
+        <option value="laptop">Laptop</option>
+        <option value="tablet">Tablet</option>
+        <option value="mobile">Mobile</option>
+    </select><br>
+
+    <label>Network Type:</label>
+    <select name="network_type">
+        <option value="broadband">Broadband</option>
+        <option value="4g">4G</option>
+        <option value="5g">5G</option>
+    </select><br>
+
+    <label>Zone:</label>
+    <select name="zone">
+        <option value="bangalore_south">Bangalore South</option>
+        <option value="bangalore_north">Bangalore North</option>
+        <option value="bangalore_east">Bangalore East</option>
+        <option value="bangalore_west">Bangalore West</option>
+    </select><br>
+
+    <label>Favourite Sport:</label>
+    <select name="favourite_sport">
+        <option value="cricket">Cricket</option>
+        <option value="football">Football</option>
+        <option value="basketball">Basketball</option>
+        <option value="badminton">Badminton</option>
+        <option value="volleyball">Volleyball</option>
+        <option value="table_tennis">Table Tennis</option>
+        <option value="tennis">Tennis</option>
+    </select><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
