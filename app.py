@@ -19,11 +19,11 @@ app.config['STATIC_FOLDER'] = "static"
 # Home Page
 
 
-#@app.route('/')
+@app.route('/')
 def homemm():
     return redirect('/start')
 
-@app.route('/')
+#@app.route('/')
 def home():
     return render_template('home.html')
 
@@ -210,6 +210,7 @@ def generation_all():
 
             # Clear the plot for the next visualization
             plt.clf()
+            return render_template('home.html')
 
 
 
