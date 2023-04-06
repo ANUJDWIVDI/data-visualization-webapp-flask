@@ -186,6 +186,7 @@ def generation_all():
 
         # Generate the visualizations for each data type
         for data_type in ['bar', 'pie', 'hist', 'box']:
+            print("Enter type o length ")
             # Define the filename for the visualization
             filename = f'{data_type}.jpg'
 
@@ -210,7 +211,7 @@ def generation_all():
 
             # Clear the plot for the next visualization
             plt.clf()
-            return render_template('home.html')
+    return render_template('home.html')
 
 
 
