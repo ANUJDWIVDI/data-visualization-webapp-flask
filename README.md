@@ -2,7 +2,7 @@
 
 This is a Flask-based data visualization tool that generates and stores 6 headings with 4 types of visualizations for each heading. The visualizations are stored in 6 separate folders within the `static` folder and can be accessed from there. The tool uses the following headings and data to create the visualizations:
 
-## Heading Details 💻
+## Headings Data Details 💻
 
 - Name
 - Age (number from 1-50)
@@ -11,6 +11,20 @@ This is a Flask-based data visualization tool that generates and stores 6 headin
 - Network used (2g, 3g, 4g, 5g)
 
 The visualizations are created using Matplotlib, Seaborn or any other suitable libraries, and saved as .jpg files in their respective folders. The tool also integrates with Bootstrap and jQuery for designing, and uses real-time data collection through a form that is integrated with Flask. Results are stored and processed using WiFi captive tunneling (MypUBLIC WIFI) and a PDF download option is provided to users so that they can download the plots they generated.
+
+
+## Tools Details 👩‍💻
+| Tool/Technology | Description                   | Software Used            | Skills Gained                  |
+|-----------------|-------------------------------|--------------------------|--------------------------------|
+| Flask           | Python web framework          | Python 🐍                  | Web development                |
+| Matplotlib      | Data visualization library    | Python  🐌                | Data visualization             |
+| Seaborn         | Data visualization library    | Python 🐌                  | Data visualization             |
+| Bootstrap       | Front-end framework           | HTML, CSS, JavaScript    | Web development                |
+| jQuery          | JavaScript library            | JavaScript 🖌️              | Web development                |
+| Gensim          | NLP package                   | Python   🐍                | Natural language processing     |
+| SpaCy           | NLP package                   | Python  🐌                | Natural language processing     |
+| Pandas          | Data manipulation library     | Python  🐍                 | Data manipulation              |
+
 
 ## Installation
 
