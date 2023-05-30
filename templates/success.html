@@ -9,6 +9,42 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
+              body {
+            background: black;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            color: #fff;
+            margin-top: 50px;
+        }
+
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .btn-container a {
+            background-color: #fff;
+            color: #000;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 10px;
+            border-radius: 50px;
+            padding: 15px 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-container a:hover {
+            background-color: #ff33cc;
+            color: #fff;
+        }
     .star {
       position: absolute;
       top: -50px;
@@ -51,14 +87,14 @@
   </style>
 </head>
 <body>
+<a href="/home" class="btn btn-primary btn-sm" style="position: absolute; top: 20px; left: 20px;">Home</a>
+<a href='/form' class="btn btn-primary btn-sm" style="position: absolute; top: 20px; right: 20px;">Form</a>
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
         <div class="text-center">
           <h1 class="display-3">Success!</h1>
-          <p class="lead">Your request has been processed.</p>
-          <div class="star"></div>
-          <div class="cloud"></div>
+          <p class="lead">Your request has been processed. Click on home button for furthur updates .</p>
         </div>
       </div>
     </div>

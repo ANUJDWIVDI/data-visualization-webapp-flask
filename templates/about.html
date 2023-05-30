@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <title>About Us</title>
     <style>
+                body {
+            background: black;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            color: #fff;
+            margin-top: 50px;
+        }
+
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .btn-container a {
+            background-color: #fff;
+            color: #000;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 10px;
+            border-radius: 50px;
+            padding: 15px 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-container a:hover {
+            background-color: #ff33cc;
+            color: #fff;
+        }
         body {
-            background-color: #EFEFEF;
+            background-color: #000000;
             font-family: Arial, sans-serif;
             color: #000;
             margin: 0;
@@ -33,7 +76,7 @@
             margin: 20px;
             overflow: hidden;
             border-radius: 5px;
-            background-color: #fff;
+            background-color: #b7b7b7;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
             transition: transform .2s ease-in-out;
         }
@@ -86,6 +129,8 @@
     </style>
 </head>
 <body>
+<a href="/home" class="btn btn-primary btn-sm" style="position: absolute; top: 20px; left: 20px;">Home</a>
+<a href='/form' class="btn btn-primary btn-sm" style="position: absolute; top: 20px; right: 20px;">Form</a>
     <nav>
         <h1>About Us</h1>
     </nav>
