@@ -1,5 +1,7 @@
 from flask import Flask, render_template, send_file, request, redirect
 import os
+from reportlab.lib.pagesizes import portrait
+from reportlab.lib import colors
 import zipfile
 from datetime import datetime
 from reportlab.lib.pagesizes import A4
@@ -70,45 +72,77 @@ def about():
 
 
 
+
 @app.route('/generate_pdf', methods=['POST'])
 def generate_pdf():
-    # Open the image files in binary mode
-    images = ['static/sample/samp1.png', 'static/sample/samp2.png','static/sample/samp3.png','static/sample/samp4.png']  # Example values
+    image_folder = 'static'
+    folders = ['Age', 'Gender', 'Device Used', 'Network Type', 'Zone', 'Sports']
+    intro_image_path = os.path.join(image_folder, 'intro.png')
+    ending_image_path = os.path.join(image_folder, 'end.png')
+    bg_image_path = os.path.join(image_folder, 'BG-TEMP.png')
+    pdf_path = os.path.join(image_folder, 'pdf', 'output.pdf')
 
-    pdf_path = 'static/pdf/output.pdf'
-    pdf_canvas = canvas.Canvas(pdf_path, pagesize=A4)
+    pdf_canvas = canvas.Canvas(pdf_path, pagesize=portrait(A4))
 
-    # Add the heading to the PDF
-    segmentation_id = 1  # Example value
-    heading_text = f'FDS PROJECT - Fully Ready Webapp'
-    pdf_canvas.setFont('Helvetica-Bold', 19)
-    pdf_canvas.drawCentredString(A4[0] / 2, A4[1] - 50, heading_text)
+    # Set background color
+    pdf_canvas.setFillColorRGB(0.9, 0.9, 0.9)
 
-    # Add the description to the PDF
-    description_text = 'This data analytics web app collects data through WiFi tunneling creating a LAN. , Developed in a timespan of 3.5 hours only '
-    pdf_canvas.setFont('Helvetica', 15)
-    pdf_canvas.drawCentredString(A4[0] / 2, A4[1] - 100, description_text)
+    # Add introduction page
+    pdf_canvas.drawImage(intro_image_path, x=0, y=0, width=A4[0], height=A4[1])
 
-    # Add the images to the PDF
-    for image_path in images:
+    for folder in folders:
+        pdf_canvas.setFont('Helvetica-Bold', 30)  # Set the font and size for the header
+
+        # Add a new page for each folder
         pdf_canvas.showPage()
-        image_width, image_height = 0.8 * A4[0], 0.8 * A4[1]
-        image_x = (A4[0] - image_width) / 2
-        image_y = (A4[1] - image_height) / 2
-        pdf_canvas.drawImage(image_path, x=image_x, y=image_y, width=image_width, height=image_height,
-                             preserveAspectRatio=True, anchor='c')
 
-    # Add the profiles column to the last page of the PDF
-    profiles_text = 'Team:\n\n> Anuj Dwivedi\n> Harsh Manalel\n> Divith BS\n> Ashish Patil'
+        # Draw the background image
+        pdf_canvas.drawImage(bg_image_path, x=0, y=0, width=A4[0], height=A4[1])
+
+        # Draw the header in the middle top
+        header_text = f"{folder} based visualized graphs on the dataset collected"
+        pdf_canvas.drawCentredString(A4[0] / 2, A4[1] - 100, header_text)
+
+        images = ['bar', 'pie', 'hist', 'box']
+        images_per_row = 2
+
+        # Calculate the center position for image justification
+        center_x = A4[0] / 2 - (images_per_row * 320) / 2
+        center_y = A4[1] / 2 - 240
+
+        for i, image_type in enumerate(images):
+            x_start = center_x + (i % images_per_row) * 320
+            y_start = center_y + (i // images_per_row) * 300
+
+            image_name = f'{folder}/{image_type}.jpg'
+            image_path = os.path.join(image_folder, image_name)
+
+            # Adjust image dimensions
+            image_width = 320
+            image_height = 240
+
+            pdf_canvas.drawImage(image_path, x_start, y_start, width=image_width, height=image_height,
+                                 preserveAspectRatio=True, anchor='nw')
+
+        # Add some space below the images
+        pdf_canvas.translate(0, -150)
+
+    # Add ending page
     pdf_canvas.showPage()
-    pdf_canvas.setFont('Helvetica', 10)
-    pdf_canvas.drawCentredString(A4[0] / 2, A4[1] - 50, profiles_text)
+    pdf_canvas.drawImage(ending_image_path, x=0, y=0, width=A4[0], height=A4[1])
 
     # Save the PDF file
     pdf_canvas.save()
+
     # Send the status as a response
     response_data = {'status': 'success'}
     return jsonify(response_data)
+
+
+
+
+
+
 
 @app.route('/download_pdf')
 def download_pdf():
