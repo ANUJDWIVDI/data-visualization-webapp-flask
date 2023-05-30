@@ -80,7 +80,7 @@ def generate_pdf():
     intro_image_path = os.path.join(image_folder, 'intro.png')
     ending_image_path = os.path.join(image_folder, 'end.png')
     bg_image_path = os.path.join(image_folder, 'BG-TEMP.png')
-    pdf_path = os.path.join(image_folder, 'pdf', 'output.pdf')
+    pdf_path = os.path.join(image_folder, 'pdf', 'fds_project_report.pdf')
 
     pdf_canvas = canvas.Canvas(pdf_path, pagesize=portrait(A4))
 
@@ -100,7 +100,7 @@ def generate_pdf():
         pdf_canvas.drawImage(bg_image_path, x=0, y=0, width=A4[0], height=A4[1])
 
         # Draw the header in the middle top
-        header_text = f"{folder} based visualized graphs on the dataset collected"
+        header_text = f"{folder} : Based Visualized Graphs on the Dataset Collected"
         pdf_canvas.drawCentredString(A4[0] / 2, A4[1] - 100, header_text)
 
         images = ['bar', 'pie', 'hist', 'box']
@@ -149,7 +149,7 @@ def download_pdf():
     # Generate the PDF file
     generate_pdf()
     # Send the PDF file as a response
-    file_path = os.path.join(app.config['STATIC_FOLDER'], 'pdf', 'output.pdf')
+    file_path = os.path.join(app.config['STATIC_FOLDER'], 'pdf', 'fds_project_report.pdf')
     return send_file(file_path, as_attachment=True)
 
 @app.route('/form', methods=['GET', 'POST'])
